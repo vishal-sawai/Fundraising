@@ -150,7 +150,7 @@
                         <progress class="w-full" max="100" value="60"></progress>
                     </div>
                     <div>
-                        <button
+                        <button onclick="document.getElementById('donationForm').style.display='block'"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                         <progress class="w-full" max="100" value="60"></progress>
                     </div>
                     <div>
-                        <button
+                        <button onclick="document.getElementById('donationForm').style.display='block'"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                         <progress class="w-full" max="100" value="60"></progress>
                     </div>
                     <div>
-                        <button
+                        <button onclick="document.getElementById('donationForm').style.display='block'"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                         <progress class="w-full" max="100" value="60"></progress>
                     </div>
                     <div>
-                        <button
+                        <button onclick="document.getElementById('donationForm').style.display='block'"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                     </div>
                 </div>
@@ -222,7 +222,7 @@
                         <progress class="w-full" max="100" value="60"></progress>
                     </div>
                     <div>
-                        <button
+                        <button onclick="document.getElementById('donationForm').style.display='block'"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
                         <progress class="w-full" max="100" value="60"></progress>
                     </div>
                     <div>
-                        <button
+                        <button onclick="document.getElementById('donationForm').style.display='block'"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                     </div>
                 </div>
@@ -250,6 +250,69 @@
         </div>
 
     </div>
+
+    <!-- donation form -->
+
+    <div class="relative z-10 hidden" aria-labelledby="modal-title" id="donationForm" role="dialog" aria-modal="true">
+
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div
+                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
+                    <div class="bg-white px-4 pb-4 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="sm:mt-0 sm:text-left w-full">
+                                <div class="flex">
+                                    <span onclick="document.getElementById('donationForm').style.display='none'"
+                                        class="border cursor-pointer text-xl h-12 w-12 rounded-full text-center pt-2 mx-auto my-3 hover:text-2xl">X</span>
+                                </div>
+                                <h1 class="py-3 px-3 text-white bg-lime-400 text-center w-full" id="modal-title">
+                                    Donation</h1>
+                                <div class="mt-6">
+                                    <form action="">
+                                        <div>
+                                            <label for="">Name</label><br>
+                                            <input
+                                                class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                type="text" name="dname" id="" placeholder="Write Your Full Name">
+                                        </div>
+                                        <div>
+                                            <label for="">Phone</label><br>
+                                            <input
+                                                class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                type="number" placeholder="Mobile No" name="dphone" id="">
+                                        </div>
+                                        <div>
+                                            <label for="">Email</label><br>
+                                            <input
+                                                class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                type="email" placeholder="abc@gmail.com" name="demail" id="">
+                                        </div>
+                                        <div>
+                                            <label for="">Address</label><br>
+                                            <input
+                                                class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                type="text" placeholder="Write Your Address" name="daddress" id="">
+                                        </div>
+                                        <div>
+                                            <input
+                                                class="border-b-2 py-2 px-3 w-full bg-gray-500 text-white font-bold rounded-md cursor-pointer   "
+                                                type="submit" name="dbtn" value="SUBMIT">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--  -->
 
     <!-- Campaign Section End -->
 </div>
