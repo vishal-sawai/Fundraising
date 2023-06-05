@@ -47,7 +47,6 @@
 
 <!-- Request Form -->
 
-
 <div class="relative z-10 hidden" aria-labelledby="modal-title" id="reqCampaign" role="dialog" aria-modal="true">
 
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
@@ -69,7 +68,8 @@
                                 FOR
                                 CAMPAIGN</h1>
                             <div class="mt-6">
-                                <form action="">
+                                <form action="" method="post">
+                                    {% csrf_token %}
                                     <div>
                                         <label for="">Name</label><br>
                                         <input
@@ -121,8 +121,6 @@
         </div>
     </div>
 </div>
-
-
 
 <!-- End Form -->
 

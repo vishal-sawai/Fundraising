@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign</title>
+</head>
+
+<body style="background-color: #F0F3F4;">
+    <div class="flex">
+        <!-- vertical navbar -->
+        <div>
+            <div>
+                <div class="ml-5 my-3 drop-shadow-2xl w-80 border border-solid bg-white rounded fixed "
+                    style="height: 95vh;">
+                    <div class="flex rounded justify-center py-3" style="background-color: #b625ff;">
+                        <img class="w-20 mr-3 " src="/static/img/logo.png" alt="">
+                        <h2 class="text-xl font-bold mt-6 text-white uppercase">Helping Hand</h2>
+                    </div>
+                    <div class="py-6 px-5 w-80 flex flex-col">
+                        <a class="w-full py-3 mb-2 text-start pl-10 drop-shadow-2xl rounded mx-auto hover:font-bold hover:text-white hover:bg-red-700"
+                            href="/adminpanel/dashboard" rel="noopener noreferrer"><i
+                                class="fa-solid fa-table-cells text-xl pr-2"></i></i>
+                            Dashboard</a>
+                        <a class="w-full py-3 mb-2 text-start pl-10 drop-shadow-2xl rounded mx-auto hover:font-bold hover:text-white hover:bg-red-700"
+                            href="/adminpanel/donation" rel="noopener noreferrer"><i
+                                class="fa-solid fa-hand-holding-dollar text-xl pr-2"></i>Donation</a>
+                        <a class="w-full py-3 mb-2 text-start pl-10 drop-shadow-2xl rounded mx-auto bg-red-700 text-white font-bold hover:font-bold hover:bg-red-700 hover:text-white"
+                            href="/adminpanel/campaign" rel="noopener noreferrer"> <i
+                                class="fa-solid fa-folder-plus text-xl pr-2"></i>Campaign</a>
+                        <a class="w-full py-3 mb-2 text-start pl-10 drop-shadow-2xl rounded mx-auto hover:font-bold hover:text-white hover:bg-red-700"
+                            href="/adminpanel/request" rel="noopener noreferrer"><i
+                                class="fa-solid fa-file-circle-plus text-xl pr-2"></i>Request</a>
+                        <a class="w-full py-3 mb-2 text-start pl-10 drop-shadow-2xl rounded mx-auto hover:font-bold hover:text-white hover:bg-red-700"
+                            href="/adminpanel/message" rel="noopener noreferrer"><i
+                                class="fa-regular fa-envelope text-xl pr-2"></i>Message</a>
+
+                        <a class="w-full py-3 mb-2 text-start pl-10 drop-shadow-2xl rounded mx-auto hover:font-bold hover:text-white hover:bg-red-700"
+                            href="" rel="noopener noreferrer"><i
+                                class="fa-solid fa-right-from-bracket text-xl pr-2"></i>Logout</a>
+                    </div>
+                    <div class="flex flex-col absolute inset-x-0 bottom-0 mb-10">
+                        <i class="fa-solid fa-user text-center bg-blue-400 text-2xl w-16 h-16 p-5 rounded-full mx-auto"
+                            style="color: #fdf7f7;"></i>
+                        <h3 class="text-center mt-1 font-bold">Admin</h3>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="ml-96">
+            <div>
+                <div class="mr-5 my-3 p-10 drop-shadow-2xl border border-solid bg-white rounded fixed overflow-y-auto rounded"
+                    style="height: 95vh;">
+                    <h1
+                        class="w-full py-3 text-start pl-10 drop-shadow-2xl mx-auto bg-red-700 text-white font-bold rounded-t-lg">
+                        <i class="fa-solid fa-folder-plus text-xl pr-2"></i>
+                        Campaign
+                    </h1>
+                    <div class="bg-black font-bold py-5 text-white rounded-b-lg flex justify-between">
+                        <h3 class="pl-16 align-middle">Add Campaign</h3>
+                        <button class="mr-16 bg-blue-400 rounded py-2 px-4"
+                            onclick="document.getElementById('addCampaign').style.display='block'">
+                            <i class="fa-solid fa-plus text-2xl"></i>
+                        </button>
+                    </div>
+                    <div class="mt-8 mx-10">
+
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-fixed">
+                                <thead
+                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr class="bg-blue-400 text-white">
+                                        <th scope="col" class="px-6 py-3">
+                                            Title
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Description
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Fund
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Raised Fund
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Date
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b dark:bg-gray-900 dark:border-gray-700">
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            Chaild Eduction
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            We Need Fund For Chaild Eduction
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            50000
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            4000
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            05-07-2001
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="#"
+                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Javascript -->
+
+
+            <!-- Add Campaign Form -->
+            <div class="relative z-10 hidden" aria-labelledby="modal-title" id="addCampaign" role="dialog"
+                aria-modal="true">
+
+                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+                <div class="fixed inset-0 z-10 overflow-y-auto">
+                    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div
+                            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
+                            <div class="bg-white px-4 pb-4 sm:pb-4">
+                                <div class="sm:flex sm:items-start">
+                                    <div class="sm:mt-0 sm:text-left w-full">
+                                        <div class="flex">
+                                            <span onclick="document.getElementById('addCampaign').style.display='none'"
+                                                class="border cursor-pointer text-xl h-12 w-12 rounded-full text-center pt-2 mx-auto my-3 hover:text-2xl">X</span>
+                                        </div>
+                                        <h1 class="py-3 px-3 text-white bg-lime-400 text-center w-full"
+                                            id="modal-title">
+                                            Add
+                                            CAMPAIGN</h1>
+                                        <div class="mt-6">
+                                            <form action="" method="post">
+                                                {% csrf_token %}
+                                                <div>
+                                                    <label for="">Title</label><br>
+                                                    <input
+                                                        class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                        type="text" name="title" id=""
+                                                        placeholder="Write Your Full Name">
+                                                </div>
+                                                <div>
+                                                    <label for="">Description</label><br>
+                                                    <input
+                                                        class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                        placeholder="Write is cause" type="text" name="desc" id="">
+                                                </div>
+                                                <div>
+                                                    <label for="">Image</label><br>
+                                                    <input
+                                                        class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                        type="file" placeholder="Upload Image" name="img" id="">
+                                                </div>
+                                                <div>
+                                                    <label for="">Funds</label><br>
+                                                    <input
+                                                        class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                        type="number" placeholder="Enter Fund" name="fund" id="">
+                                                </div>
+                                                <div>
+                                                    <input
+                                                        class="border-b-2 py-2 px-3 w-full bg-gray-500 text-white font-bold rounded-md cursor-pointer   "
+                                                        type="submit" name="btn" value="SUBMIT">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Campaign Form -->
+
+            <!-- font awosome -->
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script src="https://kit.fontawesome.com/ff3c91d27a.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
