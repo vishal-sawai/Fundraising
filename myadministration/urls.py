@@ -5,7 +5,7 @@ from myadministration import views
 app_name = 'myadministration'
 
 urlpatterns = [
-  path("",views.adminlogin,name='login'),
+  path("",views.adminlogin,name='adminlogin'),
   path("dashboard/",views.dashboard,name="dashboard"),
   path("donation/",views.donation,name="donation"),
   path("campaign/",views.campaign,name="campaign"),

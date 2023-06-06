@@ -1,39 +1,34 @@
-from django.shortcuts import render
-import mysql.connector as sql
+from django.shortcuts import render,redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import login,authenticate
 
-# Create your views here.
-def adminlogin(request):
-    if request.method == "POST":
-        m = sql.connect(host="localhost",user="root",passwd="coder",database="FRS")
-        uname = ""
-        upass = ""
-        cursor = m.cursor()
-        d = request.POST
-        for key,value in d.items():
-            if key == "username":
-                uname = value
-            if key == "userpass":
-                upass = value
-
-        c = "select * from admin where username = '{}' and userpass = '{}'".format(uname,upass)  
-        cursor.execute(c)
-        t = tuple(cursor.fetchall())
-        if t == ():
-            context = {
-                'msg':"*Check Your Username And Password"
-            }
-            return render(request,'admin/adminlogin.html',context)
-        else:
-            context = {
-               'user':uname
-            }
-            return render(request,"admin/dashboard.html",context)             
-
-    return render(request,'admin/adminlogin.html')
-
-# dashboard
 def dashboard(request):
-    return render(request,'admin/dashboard.html')
+    if request.user.is_authenticated:
+        # c={"img":pr}
+        return render(request,"admin/dashboard.html")
+    else:
+        return render(request,"admin/adminlogin.html")           
+
+def adminlogin(request):
+    if request.user.is_authenticated:
+        return render(request,"admin/dashboard.html")
+    else:
+        if request.method=="POST":
+            username=request.POST['username']
+            password=request.POST["userpass"]
+            user=authenticate(username=username,password=password)
+            if user is not None:
+                login(request,user)
+                return render(request,"admin/dashboard.html") 
+            else:
+                context = {
+                     'msg':"*Check Your Username And Password"
+                }
+                return render(request,"admin/adminlogin.html",context) 
+        else:
+            return render(request,"admin/adminlogin.html")           
+
+        
 def donation(request):
     return render(request,'admin/donation.html')    
 def campaign(request):
