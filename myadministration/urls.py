@@ -6,6 +6,7 @@ app_name = 'myadministration'
 
 urlpatterns = [
   path("",views.adminlogin,name='adminlogin'),
+  path("signout/",views.signout,name="signout"),
   path("dashboard/",views.dashboard,name="dashboard"),
   path("donation/",views.donation,name="donation"),
   path("campaign/",views.campaign,name="campaign"),

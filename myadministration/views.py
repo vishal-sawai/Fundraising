@@ -1,10 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,logout,authenticate
 
 def dashboard(request):
     if request.user.is_authenticated:
-        # c={"img":pr}
         return render(request,"admin/dashboard.html")
     else:
         return render(request,"admin/adminlogin.html")           
@@ -26,17 +25,39 @@ def adminlogin(request):
                 }
                 return render(request,"admin/adminlogin.html",context) 
         else:
-            return render(request,"admin/adminlogin.html")           
+            return render(request,"admin/adminlogin.html")    
+
+def signout(request):
+    logout(request)
+    return render(request,"admin/adminlogin.html")            
+
 
         
 def donation(request):
-    return render(request,'admin/donation.html')    
+     if request.user.is_authenticated:
+        return render(request,'admin/donation.html')
+     else:
+        return render(request,"admin/adminlogin.html")   
+
 def campaign(request):
-    return render(request,'admin/campaign.html')   
+    if request.user.is_authenticated:
+        return render(request,'admin/campaign.html')
+    else:
+        return render(request,"admin/adminlogin.html")    
+       
 def request(request):
-    return render(request,'admin/request.html')    
+    if request.user.is_authenticated:
+        return render(request,'admin/request.html')
+    else:
+        return render(request,"admin/adminlogin.html")     
+    
+
 def message(request):
-    return render(request,'admin/message.html')             
+    if request.user.is_authenticated:
+        return render(request,'admin/message.html')
+    else:
+        return render(request,"admin/adminlogin.html")       
+                 
 
 
 
