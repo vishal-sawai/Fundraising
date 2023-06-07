@@ -79,6 +79,9 @@
                                             Title
                                         </th>
                                         <th scope="col" class="px-6 py-3">
+                                            Name
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
                                             Description
                                         </th>
                                         <th scope="col" class="px-6 py-3">
@@ -96,28 +99,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for d in cdata %}
                                     <tr class="border-b dark:bg-gray-900 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Chaild Eduction
+                                            {{ d.title }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            We Need Fund For Chaild Eduction
+                                            {{ d.name }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            50000
+                                            {{ d.description }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            4000
+                                            {{ d.fund }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            05-07-2001
+                                            {{ d.raisedfund }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ d.date }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <a href="#"
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                                         </td>
                                     </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -152,14 +160,21 @@
                                             Add
                                             CAMPAIGN</h1>
                                         <div class="mt-6">
-                                            <form action="" method="post">
+                                            <form action="/adminpanel/addCampaign" method="POST"
+                                                enctype="multipart/form-data">
                                                 {% csrf_token %}
+                                                <div>
+                                                    <label for="">Name</label><br>
+                                                    <input
+                                                        class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                        type="text" name="name" id=""
+                                                        placeholder="Write Your Full Name">
+                                                </div>
                                                 <div>
                                                     <label for="">Title</label><br>
                                                     <input
                                                         class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
-                                                        type="text" name="title" id=""
-                                                        placeholder="Write Your Full Name">
+                                                        type="text" name="title" id="" placeholder="Write Title">
                                                 </div>
                                                 <div>
                                                     <label for="">Description</label><br>

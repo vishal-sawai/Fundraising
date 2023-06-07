@@ -136,16 +136,18 @@
 
         <div class="flex flex-wrap">
 
+            {% for d in cdata %}
             <div class="w-80 rounded bg-white shadow-2xl mt-8 mx-auto">
-                <img class="rounded" src="/static/img/hd.jpg" alt="" srcset="">
+                <img class="rounded" src="/campaignimg/{{d.img}}" alt="" srcset="">
                 <div class="px-3 pt-2 pb-6">
-                    <h2 class="capitalize text-lg pb-2">I need money to travel all over the world please help me to
-                        complete
-                        my
-                        dream</h2>
+                    <h2 class="capitalize text-lg text-center pb-1 font-bold">{{ d.title }}</h2>
+                    <p class="pb-1">{{d.description}}</p>
                     <div class="mb-3">
-                        <p class="text-center"><b>₹ 40000</b> raised out of <b>₹ 5,00,00,000</b></p>
-                        <progress class="w-full" max="100" value="60"></progress>
+                        {%
+                            pvalue =  d.raisedfund / d.fund * 100
+                        %}
+                        <p class="text-center"><b>₹ {{d.raisedfund}}</b> raised out of <b>₹ {{d.fund}} </b></p>
+                        <progress class="w-full" max="100" value=""></progress>
                     </div>
                     <div>
                         <button onclick="document.getElementById('donationForm').style.display='block'"
@@ -153,97 +155,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="w-80 rounded bg-white shadow-2xl mt-8 mx-auto">
-                <img class="rounded" src="/static/img/hd.jpg" alt="" srcset="">
-                <div class="px-3 pt-2 pb-6">
-                    <h2 class="capitalize text-lg pb-2">I need money to travel all over the world please help me to
-                        complete
-                        my
-                        dream</h2>
-                    <div class="mb-3">
-                        <p class="text-center"><b>₹ 40000</b> raised out of <b>₹ 5,00,00,000</b></p>
-                        <progress class="w-full" max="100" value="60"></progress>
-                    </div>
-                    <div>
-                        <button onclick="document.getElementById('donationForm').style.display='block'"
-                            class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-80 rounded bg-white shadow-2xl mt-8 mx-auto">
-                <img class="rounded" src="/static/img/hd.jpg" alt="" srcset="">
-                <div class="px-3 pt-2 pb-6">
-                    <h2 class="capitalize text-lg pb-2">I need money to travel all over the world please help me to
-                        complete
-                        my
-                        dream</h2>
-                    <div class="mb-3">
-                        <p class="text-center"><b>₹ 40000</b> raised out of <b>₹ 5,00,00,000</b></p>
-                        <progress class="w-full" max="100" value="60"></progress>
-                    </div>
-                    <div>
-                        <button onclick="document.getElementById('donationForm').style.display='block'"
-                            class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-80 rounded bg-white shadow-2xl mt-8 mx-auto">
-                <img class="rounded" src="/static/img/hd.jpg" alt="" srcset="">
-                <div class="px-3 pt-2 pb-6">
-                    <h2 class="capitalize text-lg pb-2">I need money to travel all over the world please help me to
-                        complete
-                        my
-                        dream</h2>
-                    <div class="mb-3">
-                        <p class="text-center"><b>₹ 40000</b> raised out of <b>₹ 5,00,00,000</b></p>
-                        <progress class="w-full" max="100" value="60"></progress>
-                    </div>
-                    <div>
-                        <button onclick="document.getElementById('donationForm').style.display='block'"
-                            class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-80 rounded bg-white shadow-2xl mt-8 mx-auto">
-                <img class="rounded" src="/static/img/hd.jpg" alt="" srcset="">
-                <div class="px-3 pt-2 pb-6">
-                    <h2 class="capitalize text-lg pb-2">I need money to travel all over the world please help me to
-                        complete
-                        my
-                        dream</h2>
-                    <div class="mb-3">
-                        <p class="text-center"><b>₹ 40000</b> raised out of <b>₹ 5,00,00,000</b></p>
-                        <progress class="w-full" max="100" value="60"></progress>
-                    </div>
-                    <div>
-                        <button onclick="document.getElementById('donationForm').style.display='block'"
-                            class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-80 rounded bg-white shadow-2xl mt-8 mx-auto">
-                <img class="rounded" src="/static/img/hd.jpg" alt="" srcset="">
-                <div class="px-3 pt-2 pb-6">
-                    <h2 class="capitalize text-lg pb-2">I need money to travel all over the world please help me to
-                        complete
-                        my
-                        dream</h2>
-                    <div class="mb-3">
-                        <p class="text-center"><b>₹ 40000</b> raised out of <b>₹ 5,00,00,000</b></p>
-                        <progress class="w-full" max="100" value="60"></progress>
-                    </div>
-                    <div>
-                        <button onclick="document.getElementById('donationForm').style.display='block'"
-                            class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
-                    </div>
-                </div>
-            </div>
-
+            {% endfor %}
 
         </div>
 

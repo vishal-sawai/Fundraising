@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from home.views import *
+from myadministration.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('',include('home.urls')),
-    # path('adminpanel',include('myadministration.urls')),
     path('', include('home.urls', namespace='home')),
     path('adminpanel/', include('myadministration.urls', namespace='myadministration')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  

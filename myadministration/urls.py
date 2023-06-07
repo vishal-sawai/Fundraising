@@ -12,4 +12,5 @@ urlpatterns = [
   path("campaign/",views.campaign,name="campaign"),
   path("request/",views.request,name="request"),
   path("message/",views.message,name="message"),
+  path("addCampaign",views.addCampaign,name="addCampaign"),
 ]

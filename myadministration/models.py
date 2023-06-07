@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class campaign(models.Model):
+class campaigntable(models.Model):
        name = models.CharField(max_length=100)
        title = models.CharField(max_length=100)
        description=models.CharField(max_length=500)
