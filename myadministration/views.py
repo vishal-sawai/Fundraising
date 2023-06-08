@@ -87,10 +87,11 @@ def addCampaign(request):
             description = request.POST['desc']
             fund = request.POST['fund']
             img = request.FILES['img']
+            raisedfund = 0
             t = time.localtime() 
             cur_date = datetime.date.today()
             cur_time = time.strftime("%H:%M:%S", t) 
-            cnew = campaigntable(name=name,title=title,description=description,fund=fund,img=img,date=cur_date,time=cur_time)
+            cnew = campaigntable(name=name,title=title,description=description,fund=fund,img=img,date=cur_date,time=cur_time,raisedfund=raisedfund)
             cnew.save()
             return redirect("/adminpanel/campaign")
         else:

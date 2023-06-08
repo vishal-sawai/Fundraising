@@ -155,11 +155,18 @@
                     <p class="pb-1">{{d.description}}</p>
                     <div class="mb-3">
                         <p class="text-center"><b>₹ {{d.raisedfund}}</b> raised out of <b>₹ {{d.fund}} </b></p>
-                        <progress class="w-full" max="{{d.fund}}" value="{{d.raisedfund}}"></progress>
+                        <progress class="w-full" max="{{d.fund}}" value="{{d.raisedfun}}"></progress>
+
                     </div>
                     <div>
-                        <button onclick="document.getElementById('donationForm').style.display='block'"
+                        <py-script>
+                            {% if d.fund > d.raisedfund %}
+                        </py-script>
+                        <button  onclick="document.getElementById('donationForm').style.display='block',cformdata('{{d.id}}')"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
+                        <py-script>
+                            {% endif %}
+                        </py-script>
                     </div>
                 </div>
             </div>
@@ -213,6 +220,17 @@
                                             <input
                                                 class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="text" placeholder="Write Your Address" name="daddress" id="">
+                                        </div>
+                                        <div>
+                                            <label for="">Donation Amount</label><br>
+                                            <input
+                                                class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                type="no" placeholder="Donation Amount" name="amount" id="">
+                                        </div>
+                                        <div>
+                                            <input
+                                                class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                type="hidden" value="" name="campaignid" id="cid">
                                         </div>
                                         <div>
                                             <input
