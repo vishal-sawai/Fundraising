@@ -37,6 +37,18 @@ def reqCampaign(request):
         else:
             return render(request,"index.html")
 
+# Send message
+def sendMsg(request):
+        if request.method=="POST":
+            name = request.POST['name']
+            phone = request.POST['phone']
+            email = request.POST['email']
+            message = request.POST['message']
+            msgnew = contacttable(name=name,phone=phone,email=email,message=message)
+            msgnew.save()
+            return render(request,"contact.html")
+        else:
+            return render(request,"contact.html")
 
         
     

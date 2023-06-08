@@ -67,7 +67,12 @@ def request(request):
 
 def message(request):
     if request.user.is_authenticated:
-        return render(request,'admin/message.html')
+        if request.user.is_authenticated:
+            mydata = contacttable.objects.all().values()
+            context = {
+                'cmdata': mydata,
+            }
+        return render(request,'admin/message.html',context)
     else:
         return render(request,"admin/adminlogin.html")    
 
@@ -104,6 +109,12 @@ def deleteRequest(request,id):
     dele = crquesttable.objects.get(id=id)
     dele.delete()
     return redirect("/adminpanel/request")
+
+def deleteMessage(request,id):
+    dele = contacttable.objects.get(id=id)
+    dele.delete()
+    return redirect("/adminpanel/message")    
+
 
     
                 
