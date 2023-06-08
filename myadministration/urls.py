@@ -13,4 +13,6 @@ urlpatterns = [
   path("request/",views.request,name="request"),
   path("message/",views.message,name="message"),
   path("addCampaign",views.addCampaign,name="addCampaign"),
+  path("deleteCampaign/<int:id>",views.deleteCampaign, name="deleteCampaign"),
+  path("deleteRequest/<int:id>",views.deleteRequest, name="deleteRequest"),
 ]

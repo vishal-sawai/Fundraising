@@ -68,7 +68,7 @@
                                 FOR
                                 CAMPAIGN</h1>
                             <div class="mt-6">
-                                <form action="" method="post">
+                                <form action="/crquest" method="post">
                                     {% csrf_token %}
                                     <div>
                                         <label for="">Name</label><br>
@@ -101,10 +101,16 @@
                                             type="text" placeholder="Write Your Address" name="address" id="">
                                     </div>
                                     <div>
+                                        <label for="">Amount</label><br>
+                                        <input
+                                            class="border-b-2 mb-1 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                            type="text" placeholder="Enter Amount" name="amount" id="">
+                                    </div>
+                                    <div>
                                         <label for="">Story</label><br>
                                         <textarea
                                             class="border-b-2 mb-4 rounded h-20 w-full outline-none py-3 px-2 text-sky-800"
-                                            name="" id="" cols="30" rows="10"
+                                            name="story" id="" cols="30" rows="10"
                                             placeholder="Write Your Story In Short"></textarea>
                                     </div>
                                     <div>
@@ -129,10 +135,15 @@
 </div>
 
 <!-- Home Section End -->
-<div style=" background-color: #F0F3F4;">
+<div style="background-color: #F7F9F9;">
+
+    <div>
+        <h1 class="text-center font-bold text-4xl text-red-800">CAMPAIGNS</h1>
+    </div>
+
     <!-- Campaign Section Start -->
 
-    <div class="sm:mx-36 py-20">
+    <div class="sm:mx-36 py-5">
 
         <div class="flex flex-wrap">
 
@@ -143,11 +154,8 @@
                     <h2 class="capitalize text-lg text-center pb-1 font-bold">{{ d.title }}</h2>
                     <p class="pb-1">{{d.description}}</p>
                     <div class="mb-3">
-                        {%
-                            pvalue =  d.raisedfund / d.fund * 100
-                        %}
                         <p class="text-center"><b>₹ {{d.raisedfund}}</b> raised out of <b>₹ {{d.fund}} </b></p>
-                        <progress class="w-full" max="100" value=""></progress>
+                        <progress class="w-full" max="{{d.fund}}" value="{{d.raisedfund}}"></progress>
                     </div>
                     <div>
                         <button onclick="document.getElementById('donationForm').style.display='block'"

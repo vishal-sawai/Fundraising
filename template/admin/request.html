@@ -79,11 +79,12 @@
                                             Phone
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Address
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
                                             Email
                                         </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Address
+                                        </th>
+                                       
                                         <th scope="col" class="px-6 py-3">
                                             Story
                                         </th>
@@ -91,39 +92,47 @@
                                             Amount
                                         </th>
                                         <th scope="col" class="px-6 py-3">
+                                            Date
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
                                             Action
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for d in crdata %}
                                     <tr class="border-b dark:bg-gray-900 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Vishal Sawai
+                                            {{d.name}}
                                         </th>
                                         <td class="px-6 py-4">
-                                            We Need Fund For Chaild Eduction
+                                            {{d.cause}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            1234567895
+                                            {{d.phone}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            pune
+                                            {{d.email}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            vs@gmail.com
+                                            {{d.address}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            We are collect for chail who are not affort Eduction expenss
+                                            {{d.story}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            50000
+                                            {{d.amount}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                            {{d.date}}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <a href="/adminpanel/deleteRequest/{{d.id}}"
+                                                class="font-medium text-white py-2 px-5 rounded bg-red-600 dark:text-blue-500 hover:underline">Delete</a>
                                         </td>
                                     </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>

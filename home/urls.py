@@ -6,5 +6,8 @@ app_name = 'home'
 urlpatterns = [
   path("",views.index,name='home'),
   path("about",views.about,name='about'),
-  path("Contact",views.contact,name='contact')
+  path("Contact",views.contact,name='contact'),
+   path("crquest",views.reqCampaign,name='crquest')
+
+
 ]

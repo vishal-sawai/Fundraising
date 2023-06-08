@@ -10,6 +10,11 @@ class campaigntable(models.Model):
        img = models.FileField()
        date = models.DateField(default=None)
        time = models.TimeField(default=None)
+
+
+
+
+
    
 
        

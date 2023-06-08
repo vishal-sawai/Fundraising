@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from .models import campaigntable
+from home.models import *
 import time
 import datetime
 
@@ -32,7 +33,7 @@ def adminlogin(request):
 
 def signout(request):
     logout(request)
-    return render(request,"admin/adminlogin.html")            
+    return render(request,"admin/adminlogin.html")
 
 
         
@@ -54,7 +55,12 @@ def campaign(request):
        
 def request(request):
     if request.user.is_authenticated:
-        return render(request,'admin/request.html')
+        if request.user.is_authenticated:
+            mydata = crquesttable.objects.all().values()
+            context = {
+                'crdata': mydata,
+            }
+            return render(request,'admin/request.html',context)
     else:
         return render(request,"admin/adminlogin.html")     
     
@@ -81,12 +87,25 @@ def addCampaign(request):
             cur_time = time.strftime("%H:%M:%S", t) 
             cnew = campaigntable(name=name,title=title,description=description,fund=fund,img=img,date=cur_date,time=cur_time)
             cnew.save()
-            return render(request,'admin/campaign.html')
+            return redirect("/adminpanel/campaign")
         else:
-            return render(request,'admin/campaign.html')
+            return redirect("/adminpanel/campaign")
     else:
         return render(request,"admin/adminlogin.html")
 
+# Delete Row Data
+
+def deleteCampaign(request,id):
+    dele = campaigntable.objects.get(id=id)
+    dele.delete()
+    return redirect("/adminpanel/campaign")
+
+def deleteRequest(request,id):
+    dele = crquesttable.objects.get(id=id)
+    dele.delete()
+    return redirect("/adminpanel/request")
+
+    
                 
 
 
