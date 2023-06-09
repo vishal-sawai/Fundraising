@@ -8,7 +8,7 @@ urlpatterns = [
   path("about",views.about,name='about'),
   path("Contact",views.contact,name='contact'),
   path("crquest",views.reqCampaign,name='crquest'),
-  path("msgsend",views.sendMsg,name='msgsend')
-
+  path("msgsend",views.sendMsg,name='msgsend'),
+  path("cdonation",views.donationform,name='cdonation')
 
 ]

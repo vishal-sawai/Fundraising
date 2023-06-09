@@ -1,4 +1,5 @@
 from django.db import models
+from myadministration.models import *
 
 # Create your models here.
 class crquesttable(models.Model):
@@ -16,5 +17,12 @@ class contacttable(models.Model):
        email = models.CharField(max_length=100)
        phone = models.CharField(max_length=100)
        message = models.CharField(max_length=100)
+
+# class donation(models.Model):
+# is_paid
+# razor_pay_order
+# r_payment_id
+# r_order_id
+# r_pay_signature
     
 

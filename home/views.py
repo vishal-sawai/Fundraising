@@ -2,6 +2,10 @@ from django.shortcuts import render, HttpResponse
 from myadministration.models import campaigntable
 import datetime
 from .models import *
+import razorpay
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseBadRequest
 
 # Create your views here.
 def index(request):
@@ -49,6 +53,30 @@ def sendMsg(request):
             return render(request,"contact.html")
         else:
             return render(request,"contact.html")
+
+def donationform(request):
+    if request.method == "POST":
+        name = request.POST['dname']
+        phone = request.POST['dphone']
+        email = request.POST['demail']
+        address = request.POST['daddress']
+        amount = int(request.POST['damount'])
+        cid = request.POST['campaignid']
+        # authorize razorpay client with API Keys.
+        client = razorpay.Client(
+        auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
+        payment = client.order.create({'amount': amount*100,'currency':'INR','payment_capture':1})
+        context = {'payment':payment,
+        'name':name,
+        'email':email,
+        'phone':phone
+        }
+        print(payment)
+        return render(request,"payment.html",context)
+    
+        
+        
+
 
         
     

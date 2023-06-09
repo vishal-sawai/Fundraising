@@ -28,6 +28,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Razor Pay
+RAZOR_KEY_ID = 'rzp_test_3mGn1XOOKQSG1R'
+RAZOR_KEY_SECRET = '04s6XsXOVWN0S1JNYYDcL25r'
+SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
+
+
+
 
 # Application definition
 

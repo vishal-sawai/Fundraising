@@ -196,7 +196,9 @@
                                 <h1 class="py-3 px-3 text-white bg-lime-400 text-center w-full" id="modal-title">
                                     Donation</h1>
                                 <div class="mt-6">
-                                    <form action="">
+                                    <form action="/cdonation" method="post">
+                                        {% csrf_token %}
+
                                         <div>
                                             <label for="">Name</label><br>
                                             <input
@@ -225,7 +227,7 @@
                                             <label for="">Donation Amount</label><br>
                                             <input
                                                 class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
-                                                type="no" placeholder="Donation Amount" name="amount" id="">
+                                                type="no" placeholder="Donation Amount" name="damount" id="">
                                         </div>
                                         <div>
                                             <input
@@ -234,7 +236,7 @@
                                         </div>
                                         <div>
                                             <input
-                                                class="border-b-2 py-2 px-3 w-full bg-gray-500 text-white font-bold rounded-md cursor-pointer   "
+                                                class="border-b-2 py-2 px-3 w-full bg-gray-500 text-white font-bold rounded-md cursor-pointer"
                                                 type="submit" name="dbtn" value="SUBMIT">
                                         </div>
                                     </form>

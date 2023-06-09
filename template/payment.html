@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+<!-- Title -->
+{% block title%}Home {% endblock title %}
+
+
+<!-- body -->
+{% block body%}
+
+<!-- Home Section Start-->
+<div style="height:100vh">
+<button id="rzp-button1">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+var options = {
+    "key": "rzp_test_3mGn1XOOKQSG1R", // Enter the Key ID generated from the Dashboard
+    "amount": "{{payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "HELPING HANDS", //your business name
+    "description": "Donate Money",
+   // "image": "/static/img/logo2.png",
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+    "name": "vishal", //your customer's name
+    "email": "vSawai@gmail.com",
+    "contact": "1234567890"        
+    },
+    "notes": {
+        "address": "pune"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</div>
+{% endblock body%}
