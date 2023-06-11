@@ -69,10 +69,19 @@ def donationform(request):
         context = {'payment':payment,
         'name':name,
         'email':email,
-        'phone':phone
+        'phone':phone,
+        'address':address
         }
-        print(payment)
         return render(request,"payment.html",context)
+
+def success(request):
+    payment_id = request.GET.get('razorpay_payment_id')
+    return render(request,"index.html")
+
+
+    
+
+
     
         
         

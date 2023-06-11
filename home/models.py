@@ -18,11 +18,17 @@ class contacttable(models.Model):
        phone = models.CharField(max_length=100)
        message = models.CharField(max_length=100)
 
-# class donation(models.Model):
-# is_paid
-# razor_pay_order
-# r_payment_id
-# r_order_id
-# r_pay_signature
-    
+class donation(models.Model):
+       name = models.CharField(max_length=200)
+       phone = models.CharField(max_length=200)
+       email = models.CharField(max_length=200)
+       address = models.CharField(max_length=300)
+       amount = models.IntegerField()
+       cid = models.IntegerField()
+       payment_id = models.CharField(max_length=300,null=True, blank=True)
+       date = models.DateField(default=None,null=True, blank=True)
+       time = models.TimeField(default=None,null=True, blank=True)
+       pstatus = models.CharField(max_length=200,null=True, blank=True)
+
+
 
