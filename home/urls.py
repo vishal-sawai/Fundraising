@@ -10,6 +10,5 @@ urlpatterns = [
   path("crquest",views.reqCampaign,name='crquest'),
   path("msgsend",views.sendMsg,name='msgsend'),
   path("cdonation",views.donationform,name='cdonation'),
-  path("success",views.success,name='success')
-
+  path("success",views.successReq,name='success')
 ]

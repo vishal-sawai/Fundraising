@@ -1,3 +1,4 @@
+
 <html>
 
 <!-- Title -->
@@ -27,9 +28,9 @@ var options = {
     "description": "Donate Money",
    // "image": "/static/img/logo2.png",
     "handler": function (response){
-        print("success")
-
-        window.location.href = 'http://127.0.0.1:8000/cdonation/success/?razorpay_payment_id=${response.razorpay_payment_id}'
+        console.log(response.razorpay_payment_id)
+         var paymentId = response.razorpay_payment_id;
+         sendPaymentId(paymentId);
     },
     "prefill": {
     "name": "{{name}}", 
@@ -56,6 +57,33 @@ document.getElementById('rzp-button1').onclick = function(e){
     rzp1.open();
     e.preventDefault();
 }
+
+
+function sendPaymentId(paymentId) {
+    var data = {
+        payment_id: paymentId,
+        amount :{{payment.amount}}
+        
+    };
+
+    fetch('/success', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'  // Include CSRF token if required
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
+
+
 </script>
 </div>
 </body>

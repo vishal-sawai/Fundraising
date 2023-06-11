@@ -8,7 +8,15 @@ import datetime
 
 def dashboard(request):
     if request.user.is_authenticated:
-        return render(request,"admin/dashboard.html")
+        campaigntable_count = campaigntable.objects.count()
+        crquesttable_count = crquesttable.objects.count()
+        contacttable_count = contacttable.objects.count()
+        context={
+            'count1': campaigntable_count,
+            'count2': crquesttable_count,
+            'count3': contacttable_count
+        }
+        return render(request,"admin/dashboard.html",context)
     else:
         return render(request,"admin/adminlogin.html")           
 
@@ -22,7 +30,16 @@ def adminlogin(request):
             user=authenticate(username=username,password=password)
             if user is not None:
                 login(request,user)
-                return render(request,"admin/dashboard.html") 
+                campaigntable_count = campaigntable.objects.count()
+                crquesttable_count = crquesttable.objects.count()
+                contacttable_count = contacttable.objects.count()
+
+                context={
+                    'count1': campaigntable_count,
+                    'count2': crquesttable_count,
+                    'count3': contacttable_count
+                    }
+                return render(request,"admin/dashboard.html",context)
             else:
                 context = {
                      'msg':"*Check Your Username And Password"

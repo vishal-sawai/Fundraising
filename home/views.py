@@ -6,6 +6,7 @@ import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
+import json
 
 # Create your views here.
 def index(request):
@@ -70,13 +71,20 @@ def donationform(request):
         'name':name,
         'email':email,
         'phone':phone,
-        'address':address
+        'address':address,
+        'cid':cid
         }
         return render(request,"payment.html",context)
 
-def success(request):
-    payment_id = request.GET.get('razorpay_payment_id')
-    return render(request,"index.html")
+def successReq(request):
+    if request.method == 'POST':
+        
+        payment_id = request.POST.get('payment_id')
+        amount = request.POST.get('payment_id')
+        print(payment_id,"This is payment id")
+        print(amount,"This is amount")
+        return render(request,"index.html")
+        
 
 
     
