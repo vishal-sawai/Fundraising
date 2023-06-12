@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from .models import campaigntable
 from home.models import *
+from django.db.models import Sum
 import time
 import datetime
 
@@ -11,10 +12,14 @@ def dashboard(request):
         campaigntable_count = campaigntable.objects.count()
         crquesttable_count = crquesttable.objects.count()
         contacttable_count = contacttable.objects.count()
+        donation_count = donationtable.objects.count()
+        donation_sum = donationtable.objects.aggregate(total=Sum('amount'))['total']
         context={
             'count1': campaigntable_count,
             'count2': crquesttable_count,
-            'count3': contacttable_count
+            'count3': contacttable_count,
+            'count4': donation_count,
+            'count5': donation_sum
         }
         return render(request,"admin/dashboard.html",context)
     else:
@@ -33,11 +38,14 @@ def adminlogin(request):
                 campaigntable_count = campaigntable.objects.count()
                 crquesttable_count = crquesttable.objects.count()
                 contacttable_count = contacttable.objects.count()
-
+                donation_count = donationtable.objects.count()
+                donation_sum = donationtable.objects.aggregate(total=Sum('amount'))['total']
                 context={
                     'count1': campaigntable_count,
                     'count2': crquesttable_count,
-                    'count3': contacttable_count
+                    'count3': contacttable_count,
+                    'count4': donation_count,
+                    'count5': donation_sum
                     }
                 return render(request,"admin/dashboard.html",context)
             else:
@@ -56,7 +64,11 @@ def signout(request):
         
 def donation(request):
      if request.user.is_authenticated:
-        return render(request,'admin/donation.html')
+        mydata = donationtable.objects.all().values()
+        context = {
+          'cdata': mydata,
+        }
+        return render(request,'admin/donation.html',context)
      else:
         return render(request,"admin/adminlogin.html")   
 
@@ -132,6 +144,11 @@ def deleteMessage(request,id):
     dele = contacttable.objects.get(id=id)
     dele.delete()
     return redirect("/adminpanel/message")    
+
+def deleteDonation(request,id):
+    dele = donationtable.objects.get(id=id)
+    dele.delete()
+    return redirect("/adminpanel/donation")     
 
 
     

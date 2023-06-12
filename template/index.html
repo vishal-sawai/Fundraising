@@ -156,14 +156,14 @@
                     <p class="font-bold py-2 text-orange-200">{{d.name}}</p>
                     <div class="mb-3">
                         <p class="text-center"><b>₹ {{d.raisedfund}}</b> raised out of <b>₹ {{d.fund}} </b></p>
-                        <progress class="w-full" max="{{d.fund}}" value="{{d.raisedfun}}"></progress>
+                        <progress class="w-full" max="{{d.fund}}" value="{{d.raisedfund}}"></progress>
 
                     </div>
                     <div>
                         <py-script>
                             {% if d.fund > d.raisedfund %}
                         </py-script>
-                        <button  onclick="document.getElementById('donationForm').style.display='block',cformdata('{{d.id}}')"
+                        <button  onclick="document.getElementById('donationForm').style.display='block',cformdata('{{d.id}}','{{d.title}}')"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                         <py-script>
                             {% endif %}
@@ -234,6 +234,9 @@
                                             <input
                                                 class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="hidden" value="" name="campaignid" id="cid">
+                                                <input
+                                                class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
+                                                type="hidden" value="" name="campaigntitle" id="camtitle">
                                         </div>
                                         <div>
                                             <input

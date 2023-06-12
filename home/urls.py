@@ -5,10 +5,13 @@ from home import views
 app_name = 'home'
 urlpatterns = [
   path("",views.index,name='home'),
+  path("index",views.index,name='home'),
   path("about",views.about,name='about'),
+  path("thankyou",views.thankyou,name='thankyou'),
   path("Contact",views.contact,name='contact'),
   path("crquest",views.reqCampaign,name='crquest'),
   path("msgsend",views.sendMsg,name='msgsend'),
   path("cdonation",views.donationform,name='cdonation'),
-  path("success",views.successReq,name='success')
+  path("successpay",views.successReq,name='success')
+
 ]

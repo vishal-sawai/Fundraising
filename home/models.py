@@ -18,7 +18,8 @@ class contacttable(models.Model):
        phone = models.CharField(max_length=100)
        message = models.CharField(max_length=100)
 
-class donation(models.Model):
+class donationtable(models.Model):
+       campaigntitle = models.CharField(max_length=200,null=True, blank=True)
        name = models.CharField(max_length=200)
        phone = models.CharField(max_length=200)
        email = models.CharField(max_length=200)

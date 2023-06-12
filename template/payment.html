@@ -1,90 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
-
-<!-- Title -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>Payment page</title>
+
 </head>
 
 
 <!-- body -->
+
 <body>
-<!-- Home Section Start-->
-<div style="height:100vh flex">
-<center>
-<button class="bg-fuchsia-300 text-white py-5 px-20 rounded-full font-bold w-96 mx-auto mt-72 text-lg" id="rzp-button1">Pay With Razorpay </button>
-</center>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
-<script>
-var options = {
-    "key": "rzp_test_3mGn1XOOKQSG1R", // Enter the Key ID generated from the Dashboard
-    "amount": "{{payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "HELPING HANDS", //your business name
-    "description": "Donate Money",
-   // "image": "/static/img/logo2.png",
-    "handler": function (response){
-        console.log(response.razorpay_payment_id)
-         var paymentId = response.razorpay_payment_id;
-         sendPaymentId(paymentId);
-    },
-    "prefill": {
-    "name": "{{name}}", 
-    "email": "{{email}}",
-    "contact": "{{phone}}"        
-    },
-    "notes": {
-        "address": "{{address}}"
-    },
-    "theme": {
-        "color": "#3399cc"
-    }
-};
-var rzp1 = new Razorpay(options);
-rzp1.on('payment.failed', function (response){
-        alert(response.error.code);
-        alert(response.error.description);
-        alert(response.error.source);
-        alert(response.error.step);
-        alert(response.error.reason);
-        alert(response.error.metadata.payment_id);
-});
-document.getElementById('rzp-button1').onclick = function(e){
-    rzp1.open();
-    e.preventDefault();
-}
+    <!-- Home Section Start-->
+    <div style="height:100vh flex">
+        <center>
+            <button class="bg-red-600 text-white py-5 px-20 rounded-full font-bold w-96 mx-auto mt-72 text-lg"
+                id="rzp-button1">Pay With Razorpay </button>
+        </center>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-function sendPaymentId(paymentId) {
-    var data = {
-        payment_id: paymentId,
-        amount :{{payment.amount}}
-        
-    };
 
-    fetch('/success', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': '{{ csrf_token }}'  // Include CSRF token if required
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log(result);
-    })
-    .catch(error => {
-        console.error(error);
-    });
-}
+        <script>
+            var name = "{{name}}";
+            var phone = "{{phone}}";
+            var email = "{{email}}";
+            let amount = "{{oamount}}";
+            var address = "{{address}}";
+            var cid = "{{cid}}";
+            var campaigntitle = "{{campaigntitle}}";
 
 
-</script>
-</div>
+            var options = {
+                "key": "rzp_test_3mGn1XOOKQSG1R", // Enter the Key ID generated from the Dashboard
+                "amount": "{{payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "currency": "INR",
+                "name": "HELPING HANDS", //your business name
+                "description": "Donate Money",
+                "image": "/static/img/logo2.png",
+                "handler": function (response) {
+                    var csrftoken = getCookie('csrftoken');
+                    jQuery.ajax({
+                        type: 'post',
+                        url: '/successpay',
+                        headers: {
+                            'X-CSRFToken': csrftoken
+                        },
+                        data: "payment_id=" + response.razorpay_payment_id + "&name=" + name + "&phone=" + phone + "&email=" + email + "&amount=" + amount + "&address=" + address + "&cid=" + cid + "&campaigntitle=" + campaigntitle,
+                        success: function (result) {
+                            alert("Thank You For Donation")
+                            window.location.href = "thankyou.html";
+                        }
+                    });
+                },
+                "prefill": {
+                    "name": "{{name}}",
+                    "email": "{{email}}",
+                    "contact": "{{phone}}"
+                },
+                "notes": {
+                    "address": "{{address}}"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.on('payment.failed', function (response) {
+                alert("Donation Payment Fail");
+            });
+            document.getElementById('rzp-button1').onclick = function (e) {
+                rzp1.open();
+                e.preventDefault();
+            }
+            // Function to retrieve the CSRF token from the cookie
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
+
+        </script>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </body>
+
 </html>

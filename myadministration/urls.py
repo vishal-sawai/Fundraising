@@ -16,4 +16,5 @@ urlpatterns = [
   path("deleteCampaign/<int:id>",views.deleteCampaign, name="deleteCampaign"),
   path("deleteRequest/<int:id>",views.deleteRequest, name="deleteRequest"),
   path("deleteMsg/<int:id>",views.deleteMessage, name="deleteMessage"),
+  path("deleteDonation/<int:id>",views.deleteDonation, name="deleteDonation")
 ]

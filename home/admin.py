@@ -4,4 +4,4 @@ from .models import *
 # Register your models here.
 admin.site.register(crquesttable)
 admin.site.register(contacttable)
-admin.site.register(donation)
+admin.site.register(donationtable)

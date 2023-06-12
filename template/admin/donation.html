@@ -76,13 +76,13 @@
                                             Campaign Name
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Causes
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
                                             Amount
                                         </th>
                                         <th scope="col" class="px-6 py-3">
                                             Payment Id
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Date
                                         </th>
                                         <th scope="col" class="px-6 py-3">
                                             Action
@@ -90,28 +90,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for d in cdata %}
                                     <tr class="border-b dark:bg-gray-900 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Vishal Sawai
+                                            {{ d.name }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            Chaild Eduction
+                                            {{ d.campaigntitle}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            In edu
+                                            {{ d.amount }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            2999
+                                            {{ d.payment_id }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            12354
+                                            {{ d.date }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a href="#"
-                                                class="font-medium text-white py-2 px-5 rounded bg-red-600 dark:text-blue-500 hover:underline">Delete</a>
-                                        </td>
+                                            <a href="/adminpanel/deleteDonation/{{d.id}}"
+                                                class="font-medium text-white py-2 px-5 rounded bg-red-600 dark:text-blue-500 hover:underline">Delete</a></td>
                                     </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
