@@ -68,55 +68,57 @@
                                 FOR
                                 CAMPAIGN</h1>
                             <div class="mt-6">
-                                <form action="/crquest" method="post">
+                                <form name="myForm" onsubmit="return validateForm()" action="/crquest" method="post">
                                     {% csrf_token %}
-                                    <div>
-                                        <label for="">Name</label><br>
+                                    <div id="name">
+                                        <label for="">Name </label><span class="formerror text-red-800"> </span>
+                                        <br>
                                         <input
                                             class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                             type="text" name="name" id="" placeholder="Write Your Full Name">
                                     </div>
-                                    <div>
-                                        <label for="">Cause</label><br>
+                                    <div id="cause">
+                                        <label for="">Cause </label><span class="formerror text-red-800"> </span><br>
                                         <input
                                             class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                             placeholder="Write is cause" type="text" name="cause" id="">
                                     </div>
-                                    <div>
-                                        <label for="">Phone</label><br>
+                                    <div id="phone">
+                                        <label for="">Phone </label><span class="formerror text-red-800"> </span><br>
                                         <input
                                             class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
-                                            type="number" placeholder="Mobile No" name="phone" id="">
+                                            type="tel" placeholder="Mobile No" name="phone" id="">
                                     </div>
-                                    <div>
-                                        <label for="">Email</label><br>
+                                    <div id="email">
+                                        <label for="">Email </label><span class="formerror text-red-800"> </span><br>
                                         <input
                                             class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                             type="email" placeholder="abc@gmail.com" name="email" id="">
                                     </div>
-                                    <div>
-                                        <label for="">Address</label><br>
+                                    <div id="address">
+                                        <label for="">Address </label><span class="formerror text-red-800"> </span><br>
                                         <input
                                             class="border-b-2 mb-1 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                             type="text" placeholder="Write Your Address" name="address" id="">
                                     </div>
-                                    <div>
-                                        <label for="">Amount</label><br>
+                                    <div id="amount">
+                                        <label for="">Amount </label><span class="formerror text-red-800"> </span><br>
                                         <input
                                             class="border-b-2 mb-1 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
-                                            type="text" placeholder="Enter Amount" name="amount" id="">
+                                            type="number" placeholder="Enter Amount" name="amount" id="">
                                     </div>
-                                    <div>
-                                        <label for="">Story</label><br>
+                                    <div id="story">
+                                        <label for="">Story </label><span class="formerror text-red-800"> </span><br>
                                         <textarea
                                             class="border-b-2 mb-4 rounded h-20 w-full outline-none py-3 px-2 text-sky-800"
                                             name="story" id="" cols="30" rows="10"
                                             placeholder="Write Your Story In Short"></textarea>
                                     </div>
                                     <div>
-                                        <input
-                                            class="border-b-2 py-2 px-3 w-full bg-gray-500 text-white font-bold rounded-md cursor-pointer   "
-                                            type="submit" name="btn" value="SUBMIT">
+
+                                        <button type="submit"
+                                            class="border-b-2 py-2 px-3 w-full bg-gray-500 text-white font-bold rounded-md cursor-pointer"
+                                            name="btn">SUBMIT</button>
                                     </div>
                                 </form>
                             </div>
@@ -163,7 +165,8 @@
                         <py-script>
                             {% if d.fund > d.raisedfund %}
                         </py-script>
-                        <button  onclick="document.getElementById('donationForm').style.display='block',cformdata('{{d.id}}','{{d.title}}')"
+                        <button
+                            onclick="document.getElementById('donationForm').style.display='block',cformdata('{{d.id}}','{{d.title}}')"
                             class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
                         <py-script>
                             {% endif %}
@@ -197,44 +200,48 @@
                                 <h1 class="py-3 px-3 text-white bg-lime-400 text-center w-full" id="modal-title">
                                     Donation</h1>
                                 <div class="mt-6">
-                                    <form action="/cdonation" method="post">
+                                    <form name="dmyForm" onsubmit="return donationvalidateForm()" action="/cdonation"
+                                        method="post">
                                         {% csrf_token %}
 
-                                        <div>
-                                            <label for="">Name</label><br>
+                                        <div id="dname">
+                                            <label for="">Name</label><span class="formerror text-red-800"> </span><br>
                                             <input
                                                 class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="text" name="dname" id="" placeholder="Write Your Full Name">
                                         </div>
-                                        <div>
-                                            <label for="">Phone</label><br>
+                                        <div id="dphone">
+                                            <label for="">Phone</label><span class="formerror text-red-800"> </span>
+                                            <br>
                                             <input
                                                 class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="number" placeholder="Mobile No" name="dphone" id="">
                                         </div>
-                                        <div>
-                                            <label for="">Email</label><br>
+                                        <div id="demail">
+                                            <label for="">Email</label><span class="formerror text-red-800"> </span><br>
                                             <input
                                                 class="border-b-2 mb-4 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="email" placeholder="abc@gmail.com" name="demail" id="">
                                         </div>
-                                        <div>
-                                            <label for="">Address</label><br>
+                                        <div id="daddress">
+                                            <label for="">Address</label><span class="formerror text-red-800">
+                                            </span><br>
                                             <input
                                                 class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="text" placeholder="Write Your Address" name="daddress" id="">
                                         </div>
-                                        <div>
-                                            <label for="">Donation Amount</label><br>
+                                        <div id="damount">
+                                            <label for="">Donation Amount</label><span class="formerror text-red-800">
+                                            </span><br>
                                             <input
                                                 class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
-                                                type="no" placeholder="Donation Amount" name="damount" id="">
+                                                type="number" placeholder="Donation Amount" name="damount" id="">
                                         </div>
                                         <div>
                                             <input
                                                 class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="hidden" value="" name="campaignid" id="cid">
-                                                <input
+                                            <input
                                                 class="border-b-2 mb-5 rounded h-9 w-full outline-none py-3 px-2 text-sky-800"
                                                 type="hidden" value="" name="campaigntitle" id="camtitle">
                                         </div>
