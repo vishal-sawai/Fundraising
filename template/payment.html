@@ -50,8 +50,7 @@
                         },
                         data: "payment_id=" + response.razorpay_payment_id + "&name=" + name + "&phone=" + phone + "&email=" + email + "&amount=" + amount + "&address=" + address + "&cid=" + cid + "&campaigntitle=" + campaigntitle,
                         success: function (result) {
-                            alert("Thank You For Donation")
-                            window.location.href = "thankyou.html";
+                            window.location.href = "http://127.0.0.1:8000/thankyou";
                         }
                     });
                 },
