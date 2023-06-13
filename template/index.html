@@ -140,7 +140,7 @@
 <div style="background-color: #F7F9F9;">
 
     <div>
-        <h1 class="text-center font-bold text-4xl text-red-800">CAMPAIGNS</h1>
+        <h1 class="text-center font-bold text-4xl text-red-800 pt-20">CAMPAIGNS</h1>
     </div>
 
     <!-- Campaign Section Start -->
@@ -148,6 +148,24 @@
     <div class="sm:mx-36 py-5">
 
         <div class="flex flex-wrap">
+
+            <style>
+                progress[value] {
+                    /* Reset the default appearance */
+                    -webkit-appearance: none;
+                    appearance: none;
+                }
+
+                progress[value]::-webkit-progress-bar {
+                    background-color: rgb(235, 235, 28);
+                    border-radius: 3%;
+                    box-shadow: 0 2px 5px rgba(0, 255, 47, 0.47) inset;
+                }
+
+                progress[value]::-webkit-progress-value {
+                    background-color: rgb(33, 122, 255);
+                }
+            </style>
 
             {% for d in cdata %}
             <div class="w-80 rounded bg-white shadow-2xl mt-8 mx-auto">
@@ -158,7 +176,7 @@
                     <p class="font-bold py-2 text-orange-200">{{d.name}}</p>
                     <div class="mb-3">
                         <p class="text-center"><b>₹ {{d.raisedfund}}</b> raised out of <b>₹ {{d.fund}} </b></p>
-                        <progress class="w-full" max="{{d.fund}}" value="{{d.raisedfund}}"></progress>
+                        <progress class="w-full mt-2" max="{{d.fund}}" value="{{d.raisedfund}}"></progress>
 
                     </div>
                     <div>
@@ -167,7 +185,7 @@
                         </py-script>
                         <button
                             onclick="document.getElementById('donationForm').style.display='block',cformdata('{{d.id}}','{{d.title}}')"
-                            class="w-full rounded text-white font-bold py-2 bg-yellow-500 hover:bg-yellow-400">DONATE</button>
+                            class="w-full rounded text-white font-bold py-2 bg-blue-400 hover:bg-blue-500">DONATE</button>
                         <py-script>
                             {% endif %}
                         </py-script>
@@ -264,6 +282,45 @@
     <!--  -->
 
     <!-- Campaign Section End -->
+
+    <!-- Causes you can raise funds -->
+
+    <div class="flex">
+        <div class="mx-auto">
+            <h1 class="text-3xl pt-20 text-red-800 uppercase font-bold text-center">Causes you can raise funds</h1>
+            <div class="flex mt-10 mb-20">
+                <div
+                    class="mx-5 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 py-10 px-10 text-center rounded-lg">
+                    <i class="fa-solid fa-suitcase-medical text-white font-bold text-5xl"></i>
+                    <h3 class="text-center text-2xl pt-1 font-bold text-white">MEDICAL</h3>
+                </div>
+                <div
+                    class="mx-5 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 py-10 px-10 text-center rounded-lg">
+                    <i class="fa-solid fa-children text-white font-bold text-5xl"></i>
+                    <h3 class="text-center text-2xl pt-1 font-bold text-white">CHILDREN</h3>
+                </div>
+                <div
+                    class="mx-5 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 py-10 px-10 text-center rounded-lg">
+                    <i class="fa-solid fa-book-open-reader text-white font-bold text-5xl"></i>
+                    <h3 class="text-center text-2xl pt-1 font-bold text-white">EDUCTIONAL</h3>
+                </div>
+                <div
+                    class="mx-5 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 py-10 px-10 text-center rounded-lg">
+                    <i class="fa-solid fa-dog text-white font-bold text-5xl"></i>
+                    <h3 class="text-center text-2xl pt-1 font-bold text-white">ANIMAL</h3>
+                </div>
+                <div
+                    class="mx-5 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 py-10 px-10 text-center rounded-lg">
+                    <i class="fa-solid fa-hand-holding-medical text-white font-bold text-5xl"></i>
+                    <h3 class="text-center text-2xl pt-1 font-bold text-white">OTHERS</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why end -->
+
+
 </div>
 
 

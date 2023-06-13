@@ -5,25 +5,35 @@
 
 <!-- body -->
 {% block body%}
+<div style="height:85vh; background-color: rgb(237, 229, 229);">
 
-<div style="height:85vh">
-    <div class="bg-local bg-no-repeat bg-cover bg-top" style="background-image: url(/static/img/about.jpg);">
-        <h1 class="text-4xl text-center pt-32 pb-5 underline underline-offset-8 text-white font-bold">ABOUT US</h1>
+    <div id="about" class="mb-4 mt-20">
+        <div class="container mx-auto text-lg">
+            <div
+                class="mx-auto w-5/6 px-10 sm:px-32 sm:py-20 rounded-lg flex flex-wrap place-content-center bg-white shadow-2xl">
+
+                <div class="abinfo sm:w-1/5 mx-4 grow">
+                    <div class="heading pt-7 pb-3">
+                        <h2 class="text-3xl uppercase pb-1 font-bold text-lime-800">About Us</h2>
+                    </div>
+                    <p class="text-base">
+
+                        Helping hand is fundraising web platform is an online platform that connects individuals and
+                        organizations with potential donors to raise funds for various causes, such as charitable
+                        donations, medical expenses, educational expenses, and more. The website provides a
+                        user-friendly interface that allows users to easily create and manage fundraising campaigns,
+                        share their stories and goals, and receive donations from supporters around the world.
+                    </p>
+
+                </div>
+                <div class="abimg  mx-4 grow" style="width: 300px; height: 400px;">
+                    <img style="height: 100%; width: 100%;" src="/static/img/about.jpg" class="rounded-lg" alt=""
+                        srcset="">
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <p class="mt-5 mx-20 text-lg text-center">Welcome to Helping Hand, a fundraising web platform designed to empower individuals and organizations to make a positive impact on various causes. At Helping Hand, we believe in the power of collective action and the generosity of people coming together to support those in need.
-
-            Our platform serves as a bridge, connecting passionate individuals who want to make a difference with causes that require financial assistance. Whether you're an individual seeking support for a personal cause or a nonprofit organization looking to raise funds for a specific project, Helping Hand is here to lend a helping hand.
-            
-            With our user-friendly interface and intuitive features, creating and managing fundraising campaigns has never been easier. We provide a seamless and secure environment where users can set up their campaigns, share their stories, and rally support from a network of compassionate donors.
-            
-            The heart of Helping Hand lies in the diverse range of causes we support. From medical expenses and disaster relief to educational initiatives and community development projects, we strive to address a wide spectrum of needs and make a meaningful impact on society.
-            
-            As a donor, you have the opportunity to explore and contribute to causes that resonate with you. Your generosity can bring hope, healing, and progress to those facing challenges and adversity. Through our platform, you can witness the tangible results of your donations and experience the satisfaction of knowing you've played a part in transforming lives.
-            
-            Behind the scenes, our dedicated team works tirelessly to ensure the smooth functioning of the platform. Our administrators carefully review campaign requests, maintain transparency, and uphold the highest standards of security and privacy to protect both donors and campaign organizers.</p>
-
-    </div>
+</div>
 </div>
 
 {% endblock body%}
