@@ -40,7 +40,7 @@ def reqCampaign(request):
             cur_date = datetime.date.today() 
             crnew = crquesttable(name=name,cause=cause,phone=phone,email=email,address=address,date=cur_date,story=story,amount=amount)
             crnew.save()
-            return render(request,"index.html")
+            return render(request,"thankyou2.html")
         else:
             return render(request,"index.html")
 
