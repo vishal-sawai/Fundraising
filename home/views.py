@@ -53,7 +53,7 @@ def sendMsg(request):
             message = request.POST['message']
             msgnew = contacttable(name=name,phone=phone,email=email,message=message)
             msgnew.save()
-            return render(request,"contact.html")
+            return render(request,"thankyou3.html")
         else:
             return render(request,"contact.html")
 
