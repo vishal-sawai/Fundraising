@@ -15,5 +15,4 @@ urlpatterns = [
   path("cdonation",views.donationform,name='cdonation'),
   path("successpay",views.successReq,name='success')
 
-
 ]
