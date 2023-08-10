@@ -29,8 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Razor Pay
-RAZOR_KEY_ID = 'rzp_test_3mGn1XOOKQSG1R'
-RAZOR_KEY_SECRET = '04s6XsXOVWN0S1JNYYDcL25r'
+RAZOR_KEY_ID = 'Your_Key_Id'
+RAZOR_KEY_SECRET = 'Your_Secret_code'
 SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
 
 
