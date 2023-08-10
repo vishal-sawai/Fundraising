@@ -43,8 +43,8 @@ To contribute or run the platform locally:
 
    -  **Admin Access**
 **To access the admin panel: pageName:-adminpanel**
-**Username: vishalsawai**
-**Password: Pass@12345**
+- **Username:** vishalsawai
+- **Password:** Pass@12345
    
 
 
