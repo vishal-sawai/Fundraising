@@ -29,22 +29,22 @@ Helping Hand is a fundraising web platform that connects individuals and organiz
 
 To contribute or run the platform locally:
 
-- 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/helping-hand.git
+**1. Clone the repository:**
+   ``bash
+   git clone https://github.com/your-username/helping-hand.git 
    
-- 2. Set up the database:
+**2. Set up the database:**
    - python manage.py makemigrations
    - python manage.py migrate
 
-- 3. Run the development server:
+** 3. Run the development server: **
     - python manage.py runserver
 
 
    -  **Admin Access**
-- To access the admin panel: pageName:-adminpanel
-- Username: vishalsawai
-- Password: Pass@12345
+**To access the admin panel: pageName:-adminpanel **
+** Username: vishalsawai **
+** Password: Pass@12345 **
    
 
 
